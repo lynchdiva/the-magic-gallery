@@ -1,0 +1,184 @@
+@font-face {
+  src: url("../fonts/rosarivo-regular.woff2");
+  font-family: "Rosarivo";
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes title-appears {
+  from {
+    opacity: 0%;
+    color: rgb(25, 25, 38);
+  }
+
+  50% {
+    opacity: 50%;
+    color: rgb(133, 58, 158);
+  }
+
+  to {
+    opacity: 100%;
+    color: rgb(241, 239, 227);
+  }
+}
+
+html {
+  height: 100%;
+
+  font-size: 10px;
+}
+
+body {
+  height: 100%;
+
+  font-family: "Rosarivo", cursive;
+  font-weight: 400;
+  font-style: normal;
+
+  background-color: rgb(237, 222, 255);
+}
+
+/* -------------------------HEADER-------------------------- */
+
+.header {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 15%;
+
+  background: rgb(1, 0, 36);
+  background: linear-gradient(
+    142deg,
+    rgba(1, 0, 36, 1) 27%,
+    rgba(129, 53, 162, 0.7693671218487395) 61%,
+    rgba(124, 43, 63, 1) 100%
+  );
+}
+
+.wrapper__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__title {
+  font-size: 4.5em;
+  color: rgb(240, 230, 230);
+}
+
+.animated-title {
+  animation-name: title-appears;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+.animated-title:hover {
+  animation-play-state: paused;
+}
+
+/* ------------------MENU---------------------- */
+
+#menu-toggle {
+  position: relative;
+  left: 10px;
+  bottom: 10px;
+
+  z-index: 1;
+}
+
+#menu-toggle a {
+  text-decoration: none;
+  color: #232323;
+}
+
+#menu-toggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+}
+
+#menu-toggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: rgb(241, 239, 227);
+  border-radius: 3px;
+
+  z-index: 1;
+}
+
+#menu {
+  position: absolute;
+  width: 190px;
+  margin: -40px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+
+  background-color: rgb(237, 222, 255);
+  list-style-type: none;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.menu__item {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+#menu-toggle input:checked ~ ul {
+  transform: none;
+}
+
+#menu-toggle input:checked ~ span {
+  opacity: 1;
+  background: #232323;
+}
+
+/* --------------------------MAIN------------------------- */
+
+.main {
+  display: flex;
+}
+
+.main__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5vw;
+}
+
+.main__gallery div {
+  flex: auto;
+  justify-content: space-evenly;
+  width: 230px;
+  margin: 0.5vw;
+}
+
+.main__gallery div img {
+  width: 100%;
+  height: auto;
+}
+
+.main__gallery:hover img {
+  opacity: 0.3;
+  transition: 0.8s ease;
+
+  background-color: rgb(79, 32, 124);
+}
+
+.main__gallery:hover img:hover {
+  opacity: 1;
+}
